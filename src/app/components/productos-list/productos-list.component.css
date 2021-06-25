@@ -1,0 +1,59 @@
+.producto-tarjeta{
+    background: #FFFFFF;
+    border:  5px solid #837F7F;
+    padding: 10px;
+    float: left;
+    width: 320px;
+    transition: box-shadow 0.5s;
+    
+}
+
+.producto-tarjeta:hover{
+    box-shadow: 0 5px 10px gray;
+}
+
+.producto-tarjeta .nombre{
+    font-family: "Patua One", serif;
+    color: #42929D;
+    text-align: center;
+}
+
+.producto-tarjeta .precio{
+    font-family: "Patua One", serif; 
+}
+
+.producto-tarjeta .imagen{
+    width: 100%;
+    height: 100%;
+    display:block;
+}
+
+.producto-tarjeta .descripcion{
+    font-family: "Balsamiq Sans", sans-serif;
+    height: 4rem;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.producto-tarjeta button {
+    background: #837F7F;
+    font-family: "Montserrat Alternates", serif;
+    font-size: 1rem;
+    color: white;
+    display: block;    
+    padding: 4% 8% 4% 8%;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.producto-tarjeta button:hover {
+    background: #42929D;
+}
+
+.producto-tarjeta .nombre, .producto-tarjeta .precio
+.producto-tarjeta .imagen, .producto-tarjeta .descripcion{
+    margin-bottom:  1rem;
+}
+

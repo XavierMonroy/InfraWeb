@@ -1,0 +1,7 @@
+<div class = "producto-tarjeta">
+  <h2 class="nombre" [routerLink]="['/productos-list', post.id]">{{ post.nombre }}</h2>
+  <h3 class="precio">${{ post.precio }}</h3>
+  <img matCardImage [src]="post.imagePost" class='imagen'>
+  <p class='descripcion'> {{ post.descripcion }}</p>
+  <button class="boton">Agregar al Carrito</button>
+</div>

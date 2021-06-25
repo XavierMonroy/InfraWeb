@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ittgym": {
+      "hosting": {
+        "ittGym": [
+          "ittgym"
+        ]
+      }
+    }
+  }
+}

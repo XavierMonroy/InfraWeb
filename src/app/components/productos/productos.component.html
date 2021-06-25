@@ -1,0 +1,36 @@
+<app-navbar-usuario></app-navbar-usuario>
+
+<div class="carrito">
+  <img src = "../../../assets/images/cart.png" alt="" class="carrito-boton">
+  <div class = "carrito-fondo">
+    <div class="carrito-ventana">
+
+        <p class="titulo"> Carrito de Compras </p>
+
+        <div class= "encabezado-detalle">
+            <p class="columna-producto">Producto</p>
+            <p class="columna-precio">Precio</p>
+        </div>
+
+        <div class= "productos">
+            <div class="renglon">
+                <p class= "postre">Pastel de Chocolate</p>
+                <p class="precio">$420.00</p>
+                <button class= "boton-quitar">Quitar</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="posts$ | async as posts; else loading">
+    <app-productos-list [post]="post" *ngFor="let post of posts"></app-productos-list>
+</div>
+
+<ng-template #loading>
+  <div class="container-spinner">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+
+<app-footer></app-footer>

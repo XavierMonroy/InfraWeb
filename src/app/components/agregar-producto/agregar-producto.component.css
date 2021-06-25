@@ -1,0 +1,66 @@
+.formulario-div{
+    margin-top: 5%;
+    min-height: 80vh;
+    display: grid;
+    place-items: center;
+    padding: 30px;
+}
+.formulario-div label{
+    margin-left: 2%;
+}
+
+.formulario-div form{
+    width: 400px;
+    min-height: 60vh;
+    background: #f4f4e1;
+    border: 5px solid white;
+    font-family: 'Helvetica', serif;
+    font-size: 1rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+input[type=text], input[type=password], input[type=number], textarea, select{
+    font-family: 'Helvetica', serif;
+    font-size: 2rem;
+    margin: 1rem 0 1rem 0;
+}
+
+label{
+    color: #774f38;
+}
+
+.formulario-div h3{
+    text-align: center;
+    color: #42929d;
+    text-transform: uppercase;
+    border-bottom: 1px solid #42929d;
+    font-size: 1em;
+}
+
+input[type=”file”] #imagen {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+ 
+}
+
+label[for=" imagen"] {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    background-color: #106BA0;
+    display: inline-block;
+    transition: all .5s;
+    cursor: pointer;
+    padding: 15px 40px !important;
+    text-transform: uppercase;
+    width: fit-content;
+    text-align: center;
+   
+}

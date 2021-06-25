@@ -1,0 +1,89 @@
+.login{
+    display: none;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    z-index: 10000;
+    transition: all 0.2s ease-in-out;
+    height: 80px;
+    background-color:rgba(255, 255, 255, 0.2);  
+    
+    line-height: 40px;
+}
+
+.navbar-brand{
+	line-height: 40px;
+    margin-left: 30px;
+    color: black;
+}
+
+.navbar-brand b{
+    margin-left: 15px;
+}
+
+#main-nav {
+	background-color: transparent;
+	background-image: none!important;
+}
+
+.botones{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: auto;
+    padding: 0;
+    z-index: 10000;
+    transition: all 0.2s ease-in-out;
+    height: 80px;
+    background-color:rgba(255, 255, 255, 0.2);  
+    
+    line-height: 40px;
+    margin-right: 30px;
+    margin-top: 18px;
+}
+
+.botones button{
+    margin-right: 15px;
+}
+
+button svg{
+    margin-right: 7px;
+}
+
+/*Responsivo*/
+@media (max-width:500px){
+    .botones{
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: auto;
+        padding: 0;
+        z-index: 10000;
+        transition: all 0.2s ease-in-out;
+        height: 80px;
+        background-color:rgba(255, 255, 255, 0.2);  
+        
+        line-height: 40px;
+        margin-right: 0px;
+        margin-top: 18px;
+    }
+
+    .navbar-brand{
+        line-height: 40px;
+        margin-left: 0px;
+        color: black;
+    }
+
+    .navbar-brand b{
+        margin-left: 10px;
+    }
+}
+
+@media (max-width:400){
+
+}

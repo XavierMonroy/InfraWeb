@@ -1,0 +1,137 @@
+.container {
+    margin-top: 90px;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+    justify-content: center;
+}
+
+.verproductos{
+    background: #f4f4e1;
+    padding: 3% 5% 3% 5%;
+}
+
+.separador{
+    background: #42929D;
+    color: white;
+    padding: 20px;
+    font-family: "Patua One",serif;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 350px);
+    justify-content: space-around;
+    
+    row-gap: 30px;
+}
+
+/*-----------CARRITO DE COMPRAS -------------*/
+.carrito-boton{
+    width: 50px;
+    background: #42929D;
+    border: 3px solid white;
+    border-radius: 50%;
+    position:  fixed;
+    top: 10%;
+    right: 0%;
+    z-index: 15;
+    box-shadow: 0 0 5px gray;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.carrito-boton:hover{
+    background: #E08E79;
+}
+
+.carrito-fondo{
+    position: fixed;
+    top:  0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 12;
+    background: rgba(255, 255, 255, 0.8);
+    display: grid;
+    place-items: center;
+    visibility: hidden;
+}
+
+.carrito-ventana{
+    width: 400px;
+    background: #42929D;
+    border: 5px solid #21575e;
+    padding: 10px;
+}
+
+.carrito-ventana .titulo{
+    color: white;
+    font-family: "Patua One",serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.carrito-ventana .encabezado-detalle,
+.carrito-ventana .total{
+    color: white;
+    font-family: "Balsamiq Sans", sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    border-bottom: 1px solid white;
+    margin-bottom: 10px;
+    text-decoration: uppercase;
+}
+
+.carrito-ventana .total{
+    border-bottom: none;
+    border-top: 1px solid white;
+}
+
+.renglon .precio,
+.total .precio-total{
+    text-align: right;
+}
+
+.encabezado-detalle .columnas-precio{
+    text-align: center;
+}
+
+.productos .renglon {
+    color: white;
+    font-family: "Balsamiq Sans", sans-serif;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    margin-bottom: 10px;
+}
+
+.carrito-ventana .renglon .boton-quitar{
+    color: #42929D;
+    font-family: "Balsamiq-Sans", sans-serif;
+    background: #f4f4e1;
+    border: none;
+    cursor: pointer;
+    transition: background 0.5s;
+    margin-left: 5px;
+}
+
+.carrito-ventana .renglon .boton-quitar:hover{
+    background: #e08e79;
+    color: white;
+}
+
+.carrito-ventana .boton-compra{
+    width: 100%;
+}
+
+.carrito-ventana .boton-compra:hover{
+    background: #ece5ce;
+    color: #42929d;
+}

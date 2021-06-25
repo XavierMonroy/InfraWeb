@@ -1,0 +1,29 @@
+<app-navbar-usuario></app-navbar-usuario>
+
+<div class="formulario-div">
+    <form [formGroup]="formProducto" (ngSubmit)="agregarProducto(formProducto.value)">
+        <h3>Nuevo Producto</h3>
+        <label for="producto">Producto</label>
+        <input type="text" name="producto" id="producto" formControlName="nombre">
+
+        <label for="descripcion">Descripcion</label>
+        <textarea name="descripcion" id="descripcion" cols='30' rows='3' formControlName="descripcion"></textarea>
+
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio" step="0.1" min="1" max="1000" onKeyDown="return false" formControlName="precio">
+
+        <label for="tipo">Tipo</label>
+        <select name ="tipo" id="tipo" formControlName="tipo">
+            <option value="Suplementos" selected>Suplementos</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Snacks">Snacks</option>
+        </select>
+
+        <label for="imagen">Imagen</label>
+        <input type="file" name="imagen" id="imagen" (change)="handleImage($event)" formControlName="imagen">
+
+        <input type="submit" value="Guardar" name="guardar" class="boton">
+    </form>
+</div>
+
+<app-footer></app-footer>
