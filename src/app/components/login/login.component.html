@@ -32,30 +32,36 @@
 			<form class="sign-up-htm" [formGroup]="createUser" (ngSubmit)="agregarUsuario()">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
-					<input id="user" type="text" class="input" formControlName="usuario">
+					<input id="user" type="text" class="input" formControlName="usuario" required>
 					<div class="container-error-message">
 						Usuario requerido.
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password" formControlName="password">
+					<input id="pass" type="password" class="input" 
+					data-type="password" formControlName="password" required>
 					<div class="container-error-message">
 						Contraseña requerida.
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Repetir contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password" formControlName="repassword">
+					<input id="pass" type="password" class="input" data-type="password" formControlName="repassword" required>
 					<div class="container-error-message">
 						Las contraseñas no coinciden.
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Correo</label>
-					<input id="pass" type="email" data-type="email" class="input" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">
+					<input id="pass" type="email" data-type="email" class="input" 
+						
+						[class.is-danger]="createUser.get('email')"
+						
+						formControlName="email" 
+					/>
 					<div class="container-error-message">
-						Correo requerido.
+					correo requerido
 					</div>
 				</div>
 				<div class="group">

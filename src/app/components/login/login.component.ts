@@ -39,25 +39,27 @@ export class LoginComponent implements OnInit {
               private toastr: ToastrService,
               private aRoute: ActivatedRoute){
     this.createUser = this.createFormGroup();
-    this.login = this.loginFormGroup();
+    this.login = this.loginFormGroup()
+    
   }
 
   ngOnInit(): void {
 
   }
 
+ 
   onResetForm(){
     this.createUser.reset();
     this.login.reset();
   }
 
   agregarUsuario(){
-    const usuario: any ={
-      usuario: this.createUser.value.usuario,
-      password: this.createUser.value.password,
-      email: this.createUser.value.email
-    }
-
+      const usuario: any ={
+        usuario: this.createUser.value.usuario,
+        password: this.createUser.value.password,
+        email: this.createUser.value.email
+      }
+   
     this._userService.agregarUsuario(usuario).then(()=>{
       this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
       this.router.navigate(['/productos']);
