@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms'
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +16,61 @@ export class LoginComponent implements OnInit {
   // tslint:disable-next-line: max-line-length
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-  showError(){
+  showErrorUsuario(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Ooops...',
+      text: 'Usuario y contraseña incorrectos.',
+      footer: '<p>¿No tienes una cuenta? Regístrate</p>'
+    });
+  }
 
+  showErrorCrearUsuario(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Ooops...',
+      text: 'Ha ocurrido un error.',
+      footer: '<p>Intentelo de nuevo.</p>'
+    });
+  }
+
+  showErrorFormUsuario(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Ooops...',
+      text: 'Sin datos que procesar.',
+      footer: '<p>Asegurese de capturar todos los campos.</p>'
+    });
+  }
+
+  showErrorPass(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Ooops...',
+      text: 'Contraseña incorrecta.',
+    });
+  }
+
+  showLoginCorrecto(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '¡HAS INGRESADO AL SISTEMA!',
+      text: 'BIENVENIDO.',
+      showConfirmButton: false,
+      timer: 2000
+    })
+  }
+
+  showCuentaCorrecta(){
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '¡El usuario se ha registrado con exito!',
+      text: 'BIENVENIDO.',
+      showConfirmButton: false,
+      timer: 2000
+    })
   }
 
   createFormGroup(){
@@ -46,55 +99,41 @@ export class LoginComponent implements OnInit {
               private aRoute: ActivatedRoute){
     this.createUser = this.createFormGroup();
     this.login = this.loginFormGroup()
-    
   }
 
   ngOnInit(): void {
 
   }
 
- 
   onResetForm(){
     this.createUser.reset();
     this.login.reset();
   }
 
   agregarUsuario(){
-<<<<<<< HEAD
-    if(this.createUser.invalid)
+    if(this.createUser.invalid){
+      this.showErrorFormUsuario();
       return;
-    else{
-=======
->>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
+    }else{
       const usuario: any ={
         usuario: this.createUser.value.usuario,
         password: this.createUser.value.password,
         email: this.createUser.value.email
       }
-<<<<<<< HEAD
 
       this._userService.agregarUsuario(usuario).then(()=>{
-        this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
-        this.router.navigate(['/productos']);
+        this.showCuentaCorrecta();
         this.onResetForm();
+        this.router.navigate(['/productos']);
       }).catch(error =>{
-        alert(error);
+        this.showErrorCrearUsuario();
       });
     }
-=======
-   
-    this._userService.agregarUsuario(usuario).then(()=>{
-      this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
-      this.router.navigate(['/productos']);
-      this.onResetForm();
-    }).catch(error =>{
-      alert(error);
-    });
->>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
   }
   
   ingresar(){
       if(this.login.invalid){
+        this.showErrorFormUsuario();
         return;
       }
       this.getUsuariosByNombre();
@@ -110,15 +149,15 @@ export class LoginComponent implements OnInit {
               this._userService.getPassword(this.login.value.pass).subscribe(
                 (prod:any[])=>{ console.log(prod)
                   if(prod.length > 0){
+                    this.showLoginCorrecto();
+                    this.onResetForm();
                     this.router.navigate(['/productos']);
-                    this.toastr.info('HAS INGRESADO AL SISTEMA','BIENVENIDO');
-                  }else{ this.toastr.error('EL PASSWORD NO ES CORRECTO','ERROR');}
+                  }else{ this.showErrorPass();}
                 }
               )
             }
-            console.log('PASA');
           }else{
-            this.toastr.error('EL USUARIO NO ES CORRECTO','ERROR');
+            this.showErrorUsuario();
           }
         }
       )

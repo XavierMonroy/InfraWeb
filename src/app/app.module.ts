@@ -33,6 +33,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProductosListComponent } from './components/productos-list/productos-list.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatChipsModule } from '@angular/material/chips';
+import { ModificarUsuarioComponent } from './components/modificar-usuario/modificar-usuario.component';
  
 registerLocaleData(en);
 
@@ -47,7 +48,8 @@ registerLocaleData(en);
     NavbarUsuarioComponent,
     FooterComponent,
     AgregarProductoComponent,
-    ProductosListComponent
+    ProductosListComponent,
+    ModificarUsuarioComponent
   ],
   imports: [
     BrowserModule,
