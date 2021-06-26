@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   showError(){
-    
+
   }
 
   createFormGroup(){
@@ -45,27 +45,33 @@ export class LoginComponent implements OnInit {
               private toastr: ToastrService,
               private aRoute: ActivatedRoute){
     this.createUser = this.createFormGroup();
-    this.login = this.loginFormGroup();
+    this.login = this.loginFormGroup()
+    
   }
 
   ngOnInit(): void {
 
   }
 
+ 
   onResetForm(){
     this.createUser.reset();
     this.login.reset();
   }
 
   agregarUsuario(){
+<<<<<<< HEAD
     if(this.createUser.invalid)
       return;
     else{
+=======
+>>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
       const usuario: any ={
         usuario: this.createUser.value.usuario,
         password: this.createUser.value.password,
         email: this.createUser.value.email
       }
+<<<<<<< HEAD
 
       this._userService.agregarUsuario(usuario).then(()=>{
         this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
@@ -75,6 +81,16 @@ export class LoginComponent implements OnInit {
         alert(error);
       });
     }
+=======
+   
+    this._userService.agregarUsuario(usuario).then(()=>{
+      this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
+      this.router.navigate(['/productos']);
+      this.onResetForm();
+    }).catch(error =>{
+      alert(error);
+    });
+>>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
   }
   
   ingresar(){

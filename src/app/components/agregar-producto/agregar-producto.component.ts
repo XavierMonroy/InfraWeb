@@ -31,6 +31,7 @@ export class AgregarProductoComponent implements OnInit {
   agregarProducto(data: PostI) {
     console.log('New post', data);
     this.postSvc.preAddAndUpdatePost(data, this.image);
+    alert("Datos ingresados correctamente.");
     this.formProducto.reset();
   }
 

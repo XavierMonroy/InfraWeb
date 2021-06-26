@@ -4,15 +4,19 @@
     display: grid;
     place-items: center;
     padding: 30px;
+    
 }
 .formulario-div label{
     margin-left: 2%;
+    color: #ffffff;
+    font-weight: bold ;
 }
 
 .formulario-div form{
-    width: 400px;
+    width: 50%;
     min-height: 60vh;
-    background: #f4f4e1;
+    background: gray;
+    padding: 20px;
     border: 5px solid white;
     font-family: 'Helvetica', serif;
     font-size: 1rem;
@@ -20,24 +24,48 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    border-radius: 5%;
 }
 
 input[type=text], input[type=password], input[type=number], textarea, select{
     font-family: 'Helvetica', serif;
     font-size: 2rem;
     margin: 1rem 0 1rem 0;
+    border: white;
+    border-radius: 5px;
 }
 
-label{
-    color: #774f38;
-}
 
 .formulario-div h3{
+    margin-bottom: 5px;
+    font-weight: bold ;
     text-align: center;
-    color: #42929d;
+    color: white;
     text-transform: uppercase;
-    border-bottom: 1px solid #42929d;
+    border-bottom: 1px solid #FFFFFF;
     font-size: 1em;
+}
+
+.formulario-div .boton {
+    background: #ffffff;
+    font-family: "Helvetica", serif;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+    display: block;    
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+    padding: 10px;
+    width: 90%;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.formulario-div .boton:hover {
+    background: #42929D;
+    color:white;
 }
 
 input[type=”file”] #imagen {

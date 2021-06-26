@@ -32,24 +32,45 @@
 			<form class="sign-up-htm" [formGroup]="createUser" (ngSubmit)="agregarUsuario()">
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
+<<<<<<< HEAD
 					<input id="user" type="text" class="input" formControlName="usuario">
 					<div class="alert-danger" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
 						<div class="container-error-message" *ngIf="usuario.errors.required">
 						  Usuario requerido.
 						</div>
+=======
+					<input id="user" type="text" class="input" formControlName="usuario" required>
+					<div class="container-error-message">
+						Usuario requerido.
+>>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
+<<<<<<< HEAD
 					<input id="pass" type="password" class="input" data-type="password" formControlName="password">
 					<div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
 						<div class="container-error-message" *ngIf="password.errors.required">
 						  Contraseña requerida.
 						</div>
+=======
+					<input id="pass" type="password" class="input" 
+					data-type="password" formControlName="password" required>
+					<div class="container-error-message">
+						Contraseña requerida.
+					</div>
+				</div>
+				<div class="group">
+					<label for="pass" class="label">Repetir contraseña</label>
+					<input id="pass" type="password" class="input" data-type="password" formControlName="repassword" required>
+					<div class="container-error-message">
+						Las contraseñas no coinciden.
+>>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Correo</label>
+<<<<<<< HEAD
 					<input id="pass" type="email" data-type="email" class="input" formControlName="email">
 					<div class="alert-danger" *ngIf="(email.invalid) && (email.dirty || email.touched)">
 						<div class="container-error-message" *ngIf="email.errors.required">
@@ -59,6 +80,16 @@
 						<div class="container-error-message" *ngIf="email.errors.pattern && email.touched">
 							Coloca un correo valido.
 						</div>
+=======
+					<input id="pass" type="email" data-type="email" class="input" 
+						
+						[class.is-danger]="createUser.get('email')"
+						
+						formControlName="email" 
+					/>
+					<div class="container-error-message">
+					correo requerido
+>>>>>>> 03a813d41a0f20cf01cc12771ce352f77e536dae
 					</div>
 				</div>
 				<div class="group">
