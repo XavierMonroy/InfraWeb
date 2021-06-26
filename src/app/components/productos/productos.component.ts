@@ -19,4 +19,5 @@ export class ProductosComponent implements OnInit {
   ngOnInit() {
     this.posts$ = this.postSvc.getAllPosts();
   }
+
 }

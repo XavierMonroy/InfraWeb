@@ -13,12 +13,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
 
+  // tslint:disable-next-line: max-line-length
+  private emailPattern: any = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+  showError(){
+    
+  }
+
   createFormGroup(){
     return new FormGroup({
       usuario: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required]),
-      repassword: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required])
+      email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)])
     });
   }
 
@@ -52,27 +58,30 @@ export class LoginComponent implements OnInit {
   }
 
   agregarUsuario(){
-    const usuario: any ={
-      usuario: this.createUser.value.usuario,
-      password: this.createUser.value.password,
-      email: this.createUser.value.email
-    }
+    if(this.createUser.invalid)
+      return;
+    else{
+      const usuario: any ={
+        usuario: this.createUser.value.usuario,
+        password: this.createUser.value.password,
+        email: this.createUser.value.email
+      }
 
-    this._userService.agregarUsuario(usuario).then(()=>{
-      this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
-      this.router.navigate(['/productos']);
-      this.onResetForm();
-    }).catch(error =>{
-      alert(error);
-    });
+      this._userService.agregarUsuario(usuario).then(()=>{
+        this.toastr.success('El usuario se ha registrado con exito!', 'Usuario Registrado');
+        this.router.navigate(['/productos']);
+        this.onResetForm();
+      }).catch(error =>{
+        alert(error);
+      });
+    }
   }
   
   ingresar(){
       if(this.login.invalid){
         return;
       }
-
-      this.getUsuariosByNombre()
+      this.getUsuariosByNombre();
   }
 
   getUsuariosByNombre(){
@@ -92,9 +101,18 @@ export class LoginComponent implements OnInit {
               )
             }
             console.log('PASA');
-          }else{this.toastr.error('EL USUARIO NO ES CORRECTO','ERROR');}
+          }else{
+            this.toastr.error('EL USUARIO NO ES CORRECTO','ERROR');
+          }
         }
       )
     }
   }
+
+  get pausuario(): any { return this.login.get('pausuario'); }
+  get pass(): any { return this.login.get('pass'); }
+
+  get usuario(): any { return this.createUser.get('usuario'); }
+  get password(): any { return this.createUser.get('password'); }
+  get email(): any { return this.createUser.get('email'); }
 }

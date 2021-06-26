@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
 
+ul {
+    list-style: none;
+}
+
+b{
+    color: white;
+}
+
+p {
+	color: #5a5a5a;
+	font-size: 13px;
+	letter-spacing: 0.25px;
+	line-height: 24px;
+}
+
 #menu-boton {
     display: none;
     color: white;
@@ -27,12 +42,12 @@
 }
 
 #menu li a:hover {
-    color: #774F38;    
+    color: #585757;    
 }
 
 #menu li a {
     text-decoration: none;
-    color: black;    
+    color: white;    
     transition: color 0.5s;
 }
 
@@ -45,8 +60,7 @@
     z-index: 10000;
     transition: all 0.2s ease-in-out;
     height: 80px;
-    background-color:rgba(255, 255, 255, 0.2);  
-    
+    background-color: rgb(32, 38, 40);  
     line-height: 40px;
 }
 
@@ -58,6 +72,10 @@
 
 .navbar-brand b{
     margin-left: 15px;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
+    text-shadow: none;
 }
 
 #main-nav {

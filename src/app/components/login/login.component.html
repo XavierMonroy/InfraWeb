@@ -9,23 +9,23 @@
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
 					<input id="user" type="text" class="input" formControlName="pausuario">
-					<div class="container-error-message">
-						Usuario requerido.
+					<div class="alert-danger" *ngIf="pausuario.invalid && (pausuario.dirty || pausuario.touched)">
+						<div class="container-error-message" *ngIf="pausuario.errors.required">
+						  Usuario requerido.
+						</div>
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
 					<input id="pass" type="password" class="input" formControlName="pass">
-					<div class="container-error-message">
-						Contraseña requerida.
+					<div class="alert-danger" *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+						<div class="container-error-message" *ngIf="pass.errors.required">
+						  Contraseña requerida.
+						</div>
 					</div>
 				</div>
 				<div class="group">
 					<input type="submit" class="button" value="Continuar">
-				</div>
-				<div class="hr"></div>
-				<div class="foot-lnk">
-					<b><a href="#forgot">¿Ovidaste tu contraseña?</a></b>
 				</div>
 			</form>
 
@@ -33,29 +33,32 @@
 				<div class="group">
 					<label for="user" class="label">Usuario</label>
 					<input id="user" type="text" class="input" formControlName="usuario">
-					<div class="container-error-message">
-						Usuario requerido.
+					<div class="alert-danger" *ngIf="usuario.invalid && (usuario.dirty || usuario.touched)">
+						<div class="container-error-message" *ngIf="usuario.errors.required">
+						  Usuario requerido.
+						</div>
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Contraseña</label>
 					<input id="pass" type="password" class="input" data-type="password" formControlName="password">
-					<div class="container-error-message">
-						Contraseña requerida.
-					</div>
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Repetir contraseña</label>
-					<input id="pass" type="password" class="input" data-type="password" formControlName="repassword">
-					<div class="container-error-message">
-						Las contraseñas no coinciden.
+					<div class="alert-danger" *ngIf="password.invalid && (password.dirty || password.touched)">
+						<div class="container-error-message" *ngIf="password.errors.required">
+						  Contraseña requerida.
+						</div>
 					</div>
 				</div>
 				<div class="group">
 					<label for="pass" class="label">Correo</label>
-					<input id="pass" type="email" data-type="email" class="input" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 4}$">
-					<div class="container-error-message">
-						Correo requerido.
+					<input id="pass" type="email" data-type="email" class="input" formControlName="email">
+					<div class="alert-danger" *ngIf="(email.invalid) && (email.dirty || email.touched)">
+						<div class="container-error-message" *ngIf="email.errors.required">
+						  Email requerido.
+						</div>
+
+						<div class="container-error-message" *ngIf="email.errors.pattern && email.touched">
+							Coloca un correo valido.
+						</div>
 					</div>
 				</div>
 				<div class="group">

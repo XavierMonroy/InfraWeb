@@ -2,14 +2,6 @@ span {
     background-color: red;
 }
 
-.container-error-message{
-	color: #721c24;
-	padding: 3px;
-	margin-bottom: 5px;
-	font-style: oblique;
-	font-size: 15px;
-}
-
 .spinner-border {
     float: right;
 }
@@ -166,4 +158,12 @@ a{color:inherit;text-decoration:none}
 .foot-lnk{
 	text-align:center;
 	color: blanchedalmond;
+}
+
+.container-error-message {
+	color: #721c24;
+	padding: 3px;
+	margin-bottom: 5px;
+	font-style: oblique;
+	font-size: 15px;
 }
