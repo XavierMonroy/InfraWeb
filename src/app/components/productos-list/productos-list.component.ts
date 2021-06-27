@@ -60,8 +60,10 @@ export class ProductosListComponent implements OnInit {
 
   actualizarProducto(post: PostI){
     this.producto$ = post;
-    console.log(this.producto$);
-    console.log(post);
-    this.router.navigate(['/modificar-producto']);
+    this.postSvc.deletePostById(post).then(()=>{
+      this.router.navigate(['/modificar-producto']);
+    }).catch(error =>{
+
+    });
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-navbar-usuario',
@@ -9,9 +11,17 @@ export class NavbarUsuarioComponent implements OnInit {
 
   @Input() isLoggedAdmin!: boolean;
 
-  constructor() { }
+  constructor(private afAuth: AngularFireAuth) { 
+    
+  }
 
   ngOnInit(): void {
+
+  }
+
+  cerrarSesion(): Promise<void>{
+    this.isLoggedAdmin = false;
+    return this.afAuth.signOut();
   }
 
 }

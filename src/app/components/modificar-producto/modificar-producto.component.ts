@@ -50,20 +50,15 @@ export class ModificarProductoComponent implements OnInit {
       confirmButtonText: 'Si, actualizar producto!'
     }).then((result) => {
       if (result.isConfirmed) {
-        this.postSvc.deletePostById(this.producto$).then(()=>{
-          console.log('Update post', post);
-          this.postSvc.preAddAndUpdatePost(post, this.image);
-          this.formEditProducto.reset();
-          Swal.fire(
-            'Actualizado!',
-            'Tu producto ha sido actualizado.',
-            'success'
-          )
-          this.router.navigate(['/productos']);
-        }).catch(error =>{
-          this.showErrorActualizarProducto();
-          return;
-        });
+        console.log('Update post', post);
+        this.postSvc.preAddAndUpdatePost(post, this.image);
+        this.formEditProducto.reset();
+        Swal.fire(
+          'Actualizado!',
+          'Tu producto ha sido actualizado.',
+          'success'
+        )
+        this.router.navigate(['/productos']);
       }
     })
   }
@@ -76,7 +71,6 @@ export class ModificarProductoComponent implements OnInit {
       footer: '<p>Intentelo de nuevo.</p>'
     });
   }
-
 
   handleImage(event: any): void {
     this.image = event.target.files[0];

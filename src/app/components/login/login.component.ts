@@ -154,6 +154,7 @@ export class LoginComponent implements OnInit {
                     if ((this.login.value.pausuario = "Admin") && (this.login.value.pass = "54321")){
                       this.isLoggedAdmin = true;
                     }
+                    this.isLoggedAdmin = false;
                     this.showLoginCorrecto();
                     this.onResetForm();
                     this.router.navigate(['/productos']);
