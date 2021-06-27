@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { SlideComponent } from './components/slide/slide.component';
 import { ProductosComponent } from './components/productos/productos.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ModificarProductoComponent } from './components/modificar-producto/modificar-producto.component';
 import { AgregarProductoComponent } from './components/agregar-producto/agregar-producto.component';
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path: 'productos', component:ProductosComponent},
   {path: 'agregar-producto', component:AgregarProductoComponent},
+  {path: 'modificar-producto', component:ModificarProductoComponent},
   {path: 'footer', component:FooterComponent},
   {path:'**',redirectTo:'slide',pathMatch:'full'},
 ];

@@ -3,5 +3,7 @@
   <h3 class="precio">${{ post.precio }}</h3>
   <img matCardImage [src]="post.imagePost" class='imagen'>
   <p class='descripcion'> {{ post.descripcion }}</p>
-  <button class="boton">Agregar al Carrito</button>
+  <button class="boton" *ngIf="isLoggedAdmin">Agregar al Carrito</button>
+  <button class="boton" *ngIf="!isLoggedAdmin" (click)="actualizarProducto(post)">Actualizar producto</button>
+  <button class="boton" *ngIf="!isLoggedAdmin" (click)="eliminarProducto(post)">Eliminar producto</button>
 </div>

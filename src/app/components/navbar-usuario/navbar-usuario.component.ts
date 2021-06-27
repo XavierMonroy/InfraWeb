@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-navbar-usuario',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar-usuario.component.css']
 })
 export class NavbarUsuarioComponent implements OnInit {
+
+  @Input() isLoggedAdmin!: boolean;
 
   constructor() { }
 

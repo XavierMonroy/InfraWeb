@@ -13,7 +13,7 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class PostService {
   private postsCollection: AngularFirestoreCollection<PostI>;
   private filePath: any;
-  private downloadURL!: Observable<string>;
+  private downloadURL?: Observable<string>;
 
   constructor(
     private afs: AngularFirestore,
@@ -55,12 +55,6 @@ export class PostService {
     } else {
       return this.postsCollection.add(postObj);
     }
-  }
-
-  public editPostById(post: PostI, newImage?: FileI): void{
-    if (newImage) {
-      this.uploadImage(post, newImage);
-    } 
   }
 
   public deletePostById(post: PostI) {

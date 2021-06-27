@@ -1,0 +1,35 @@
+<app-navbar-usuario></app-navbar-usuario>
+
+<div class="formulario-div">
+    <form [formGroup]="formEditProducto" (ngSubmit)="actualizarProducto(formEditProducto.value)">
+        <h3>Modificar Producto</h3>
+        <label for="producto">Producto</label>
+        <input type="text" name="producto" id="producto" formControlName="nombre">
+
+        <label for="descripcion">Descripcion</label>
+        <textarea name="descripcion" id="descripcion" cols='30' rows='3' formControlName="descripcion"></textarea>
+
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio" step="0.1" min="1"  formControlName="precio">
+
+        <label for="tipo">Tipo</label>
+        <select name ="tipo" id="tipo" formControlName="tipo">
+            <option value="Suplementos" selected>Suplementos</option>
+            <option value="Bebidas">Bebidas</option>
+            <option value="Snacks">Snacks</option>
+        </select>
+
+        <label for="imagen">Imagen</label>
+        <input type="file" name="imagen" id="imagen" (change)="handleImage($event)" formControlName="imagen">
+
+        <input type="submit" value="Actualizar" name="guardar" class="boton">
+    </form>
+</div>
+
+<ng-template #loading>
+    <div class="container-spinner">
+      <mat-spinner></mat-spinner>
+    </div>
+</ng-template>
+
+<app-footer></app-footer>

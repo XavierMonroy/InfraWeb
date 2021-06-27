@@ -91,7 +91,6 @@ export class LoginComponent implements OnInit {
   createUser: FormGroup;
   login: FormGroup;
 
-
   constructor(private fb: FormBuilder, 
               private _userService: UserService,
               private router: Router,
@@ -104,6 +103,8 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
   }
+
+  public isLoggedAdmin: boolean = false;
 
   onResetForm(){
     this.createUser.reset();
@@ -136,6 +137,7 @@ export class LoginComponent implements OnInit {
         this.showErrorFormUsuario();
         return;
       }
+
       this.getUsuariosByNombre();
   }
 
@@ -149,6 +151,9 @@ export class LoginComponent implements OnInit {
               this._userService.getPassword(this.login.value.pass).subscribe(
                 (prod:any[])=>{ console.log(prod)
                   if(prod.length > 0){
+                    if ((this.login.value.pausuario = "Admin") && (this.login.value.pass = "54321")){
+                      this.isLoggedAdmin = true;
+                    }
                     this.showLoginCorrecto();
                     this.onResetForm();
                     this.router.navigate(['/productos']);
